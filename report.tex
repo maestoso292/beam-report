@@ -1,0 +1,100 @@
+\documentclass[a4paper,11pt]{report}
+% Document structure packages
+\usepackage[margin=1.0in]{geometry}
+\usepackage{indentfirst}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{tocvsec2}
+% Figures related packages
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+% Maths related packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+% Bibliography package
+\usepackage[sorting=none,backend=bibtex]{biblatex}
+% Hyperlinks package
+\usepackage[hidelinks]{hyperref}
+% For superscript numbers
+\usepackage[super]{nth}
+% Multi-file latex project
+% LOAD LAST
+\usepackage{subfiles}
+
+\title{G52GRP Final Report\\Proximity Based Attendance Management via Bluetooth Low Energy}
+\author{Group 10a}
+
+\titleformat{\chapter}
+  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\renewcommand{\thesubsection}{\alph{subsection}.}
+\renewcommand{\labelenumi}{\roman{enumi}.} 
+%\setsecnumdepth{subsection}
+
+\addbibresource{references.bib}
+
+\numberwithin{figure}{section}
+\begin{document}
+\begin{titlepage}
+\centering
+{\Huge\bfseries G52GRP Final Report\par}
+\vspace{1.5cm}
+{\huge Proximity Based Attendance Management via Bluetooth Low Energy\par}
+\vspace{1.5cm}
+Supervisor: Dr. Radu Muschevici\par
+\vspace{0.2cm}
+\begin{center}
+\def\arraystretch{1.5}
+\begin{tabularx}{\textwidth}{ |>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X| }
+\hline
+\textbf{Name} & \textbf{Student ID} \\
+\hline
+Khor Yoong Joo & 20208420\\
+\hline
+Rahul Sharma Yuddhishthir-Gopaul & 20208621\\
+\hline
+Foo Yao Chong & 20012508\\
+\hline
+Gilbert Valentino	& 20209463\\
+\hline
+Sharfa Dhamin & 20213131\\
+\hline
+Syed Ahmad Azhad Bin Ahmad Rosehaizat & 20220036\\
+\hline
+\end{tabularx}
+\end{center}
+\end{titlepage}
+
+\setsecnumdepth{subsection}
+\settocdepth{section}
+\tableofcontents
+
+\chapter{Abstract}
+\subfile{sections/01-abstract}
+
+\chapter{Introduction}
+\subfile{sections/02-introduction}
+
+\chapter{Literature Review}
+\subfile{sections/03-lit-review}
+
+\chapter{Requirements Specification}
+\subfile{sections/04-srs}
+
+\chapter{Final Design}
+
+\chapter{Testing Methodology}
+
+\chapter{Implementation Results}
+
+\chapter{Conclusion}
+
+\chapter{Reflective Comments}
+
+\chapter{Appendix}
+\printbibliography[title=References, heading=bibnumbered]
+\end{document}

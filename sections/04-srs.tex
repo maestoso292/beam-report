@@ -1,0 +1,107 @@
+\documentclass[../report.tex]{subfiles}
+\begin{document}
+\section{Functional Requirements}
+\subsection{Authentication}
+\begin{enumerate}
+\item Application will redirect user to login screen if user is unauthenticated
+\item User authentication state is saved and remains outside of app lifecycle
+\item Users authenticated using student credentials will enter \textit{student mode}
+\item Users authenticated using lecturer credentials will enter \textit{lecturer mode}
+\end{enumerate}
+
+\subsection{Display and Navigation}
+\begin{enumerate}
+\item Within the main screen, users can swipe left and right to navigate between 4 different screens
+\item Within the \nth{1} screen, users can view a pulsing animation of the BEAM logo
+\item Within the \nth{2} screen, users can view the daily schedule of sessions they’ll be teaching or attending
+\item Within the \nth{3} screen, users can view the weekly schedule of sessions they’ll be teaching or attending
+\item Within the \nth{4} screen, users can view attendance statistics for the module they’re teaching or enrolled in
+\item Users can press the settings icon on the top right to navigate to a settings screen
+\item Within the settings screen, the user can logout delete existing authentication state
+\end{enumerate}
+
+\subsection{Lecturer Mode}
+\begin{enumerate}
+\item On arrival at main screen, app will schedule background services for opening attendance when each session begins (Updating database, sending out attendance tokens)
+\item On arrival at main screen, app will schedule background services for closing attendance when each session ends (Updating database)
+\item During background service for opening attendance, lecturer will be notified that the device is sending out attendance tokens to other devices
+\item By pressing a row containing a session, lecturer can view the attendance statistics of a particular session
+\item By pressing a module in the \nth{4} screen, lecturer can view average attendance percentage of students enrolled
+\end{enumerate}
+
+\subsection{Student Mode}
+\begin{enumerate}
+\item On arrival at main screen, app will schedule background services for taking attendance when each session begins
+\item During background service for taking attendance, user will be notified that the device is scanning for other devices and receiving tokens
+\item On successful taking of attendance, user is notified that attendance has been taken
+\item On successful taking of attendance, device switches to sending out tokens to other devices and user is notified of this
+\item By pressing a row containing a session or module, student can view their detailed attendance history of the module
+\end{enumerate}
+
+\subsection{Bluetooth Requirements}
+\begin {enumerate}
+\item App can open a GATT server to advertise a custom GATT Service
+\item App can scan for BLE devices that advertise a custom GATT Service
+\item App can read characteristics of the advertised service from other BLE devices
+\item App runs all Bluetooth functionality as a background service (doesn’t require app to be open)
+\end{enumerate}
+
+\subsection{Administration Website}
+\begin{enumerate}
+\item This is a website built to initialise the Firebase database with lecturer details, attendance record of each academic sessions by module, academic sessions of each modules, module details, academic plan consists of sets of modules, student details, attendance record of each student by academic module and academic session, timetable, and account user details.
+\item This website aims to simulate a university administration site where the admins can access and update the database. 
+\item The landing page of this website only has only feature: admin account login. 
+\item Successful logins will redirect the user to a single-page application with four main features: Student Registration, Lecturer Registration, Add or Remove Module, Update Timetable.
+\item All four main features will load on the same page without any page refresh and can be accessed via the navigation bar.
+\end{enumerate}
+
+\subsection{Firebase Realtime Database}
+\begin{enumerate}
+\item The system should store student data which can queried using student authentication account’s UID. The data shall consist of first name, last name, programme, and email.
+\item The system should store lecturer data which can queried using lecturer’s authentication account’s UID. The data shall consist of first name, last name, faculty, position, and email.
+\item The system should store module data which can queried using module id. The data shall consist of module name, lecture ids and student ids.
+\item The system should store academic plan data which can queried using programme. The data shall consist of the module ids of the modules of a programme.
+\item The system should store timetable data which can queried using date (YYYYMMDD). Academic sessions are recorded by module id and have details such as session type, status, time begin, and time end.
+\item The system should store attendance record data which can queried using module id and session id. 
+\item The system should group each academic session by module id.
+\item The system should store the academic sessions attended by a student, grouped by module id.
+\item The system stores each user account details including programme, user role, and modules.
+\end{enumerate}
+
+\section{Non-Functional Requirements}
+\subsection{Development Environment}
+\begin{enumerate}
+\item Java SE Development Kit 8 will be the main programming language used for implementing app functionality
+\item XML will be used for defining views and layouts for the app
+\item Gradle build tools will be used for managing dependencies such as the Android SDK and Firebase API
+\item Android Studio will be the IDE used for developing the app
+\end{enumerate}
+
+\subsection{Application Dependencies}
+\begin{enumerate}
+\item Android Software Development Kit will be used for developing the app
+\item Firebase API will be used for user authentication and storing and retrieving records in a cloud database
+\end{enumerate}
+
+\subsection{Availability}
+\begin{enumerate}
+\item App will support Android devices with Android 5.0 or above
+\item App will only run on devices connected to the Internet
+\item App will only run on devices with Bluetooth enabled
+\end{enumerate}
+
+\subsection{Security Requirements}
+\begin{enumerate}
+\item Data transmitted between Firebase servers and the app should be encrypted with HTTPS
+\item Data stored in servers should be encrypted
+\item Password should be hidden on the interface
+\item Only attendance tokens are transferred between devices and received from other devices for the operation of the app
+\end{enumerate}
+
+\subsection{Performance Requirements}
+\begin{enumerate}
+\item App should open in 2 seconds after the user clicks on the app icon.
+\item UI frames must not take longer than 700ms to render.
+\item App UI should respond to user input in 200ms.
+\end{enumerate}
+\end{document}
