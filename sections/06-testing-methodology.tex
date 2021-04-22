@@ -1,0 +1,46 @@
+\documentclass[../report.tex]{subfiles}
+\begin{document}
+\section{Website}
+Selenum WebDriver will be used to run test suites written in Python, which also populate the database of the attendance management system and automate the data entry process, in Microsoft Edge Browser.
+
+\lstinputlisting[language=Python,firstline=16,lastline=19]{../code/web-test.py}
+
+This function tests the login function on the landing page. The script enters email and password before clicking the login button to submit the user credentials.
+
+\lstinputlisting[language=Python,firstline=22,lastline=36]{../code/web-test.py}
+
+This function registers 10 student accounts. It waits for the student tab to become clickable before clicking it. The script will enter the first name, last name, choose the student’s programme randomly, enter email and password, and submit all details, for 10 times.
+
+\lstinputlisting[language=Python,firstline=39,lastline=61]{../code/web-test.py}
+
+This function registers 10 lecturer accounts. It waits for the lecturer tab to become clickable before clicking it. The script will enter the first name, last name, choose the lecturer’s position randomly choose the lecturer’s faculty randomly, choose the lecturer’s taught module set randomly, enter email and password, and submit all details, for 10 times.
+
+\lstinputlisting[language=Python,firstline=64,lastline=75]{../code/web-test.py}
+
+This function adds modules to the database. It waits for the module tab to become clickable before clicking it. The code snippet above contains all the module codes and names that will be entered on the website. The \textit{module\_selector} function will send the module details to the database, as shown below.
+
+\lstinputlisting[language=Python,firstline=78,lastline=93]{../code/web-test.py}
+
+The function above sends the module id, module name, the programme of the module (plan), chooses the module type for the students (in this case all modules are `Core', choose s the module set for the lecturers, and submit all the details. 
+
+\lstinputlisting[language=Python,firstline=96,lastline=107]{../code/web-test.py}
+
+This function updates the timetable on the database. It waits for the timetable tab to become clickable before clicking it. The code snippet above contains all the module codes that represents. The \textit{module\_selector} function will send the module details to the database, as shown below, for 5 days: April \nth{1} 2021 to April \nth{5} 2021.
+
+\lstinputlisting[language=Python,firstline=110,lastline=132]{../code/web-test.py}
+
+This function enters the date, module id, chooses session type randomly, session status, time of each sessions, 4 in a day (0900-1100, 1100-1300, 1400-1600, 1600-1800) and submit the details.
+
+\lstinputlisting[language=Python,firstline=135,lastline=137]{../code/web-test.py}
+
+This function logs out the user from the website, after clicking the ‘Logout’ buton.
+
+\section{Application}
+Application testing was conducted in two different ways, testing via emulators and manual device testing using real devices. For functionalities such as the UI functionality and fetching from the Firebase Database, testing was done using emulators provided by Android Studio. For the UI, a test suite was created where each possible user action and its corresponding application response was tested. For database functionality, manual testing was conducted whereby data was inputted into the database (via the website), and the applications ability to fetch data and populate the UI was tested.
+
+Regarding the testing of the attendance taking functionality, real life testing was conducted using a minimum of 2 Android devices. Attendance taking relies on Android background services and Bluetooth Low Energy connections between devices. Real life testing was conducted because Bluetooth is not available on emulators so physical devices must be used. 
+
+Regarding Android background services, testing was done by monitoring notifications posted by the app to the user. If the specific notification for the service was posted, the app’s background services were functioning normally. A test suite was created for the scheduled background services where we monitored notifications to determine whether tests passed or failed. We tested whether the services started within the correct time frame and whether subsequent services were started.
+
+A test suite was also created for app’s Bluetooth functionality. There were some issues that occurred during testing. To monitor connections using Bluetooth Low Energy, Toast messages were used to monitor the connection state, devices scanned, and Bluetooth services discovered. However, Toast messages were an unreliable method for monitoring tests as not all Toast messages were displayed despite the app functioning properly. To solve this issue, tests were instead monitored using changes to the database. All Toast messages used for testing were converted to updates/writes to the database. By monitoring the database, we could see whether the Bluetooth functionality was working as expected. 
+\end{document}

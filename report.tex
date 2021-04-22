@@ -14,6 +14,10 @@
 % Maths related packages
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[super]{nth}
+% Code listings
+\usepackage{listings}
+\usepackage{xcolor}
 % Bibliography package
 \usepackage[sorting=none,backend=bibtex]{biblatex}
 % Hyperlinks package
@@ -30,6 +34,32 @@
 \titleformat{\chapter}
   {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
 \titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \renewcommand{\thesubsection}{\alph{subsection}.}
 \renewcommand{\labelenumi}{\roman{enumi}.} 
@@ -89,8 +119,10 @@ Syed Ahmad Azhad Bin Ahmad Rosehaizat & 20220036\\
 \subfile{sections/05-final-design}
 
 \chapter{Testing Methodology}
+\subfile{sections/06-testing-methodology.tex}
 
 \chapter{Implementation Results}
+\subfile{sections/07-implementation-results.tex}
 
 \chapter{Conclusion}
 
