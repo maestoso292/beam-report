@@ -8,7 +8,7 @@ The attendance taking functionality will be implemented as Android background se
 A custom GATT profile (dubbed Beam Profile) will be utilised for data transfer between two devices using the app. The Beam Profile contains one custom GATT service (Beam Service) which contains one characteristic, known as Attendance Token, that holds a string value generated as the hash of a lecture session ID. The value of this characteristic can be read by the GATT client, written by the GATT server, and the GATT client can be notified of changes in the characteristic.
 \begin{figure}[H]
 \centering
-\includegraphics[width=.5\textwidth]{./images/05-02-beam-profile.png}
+\includegraphics[width=.5\textwidth]{./images/05/02-beam-profile.png}
 \caption{Custom GATT Profile}
 \label{fig:beam-profile}
 \end{figure}
@@ -29,96 +29,107 @@ There are three types of user accounts: student, lecturer, and admin. Student an
 \subsection{Website}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-05-web-nav.png}
+\includegraphics[width=.8\textwidth]{./images/05/05-web-nav.png}
 \caption{Sitemap of administration website. Components  inside the dotted box belong to a single-page application}
-\label{fig:beam-profile}
+\label{fig:web-nav}
 \end{figure}
 
 \subsection{Application}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{./images/05/05-app-nav.png}
+\caption{Navigation graph that describes user navigation through the app}
+\label{fig:app-nav}
+\end{figure}
 
 \section{Use Case Diagrams}
 \subsection{Website}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-06-web-use-case.png}
+\includegraphics[width=.9\textwidth]{./images/05/06-web-use-case.png}
 %\caption{Use case diagram of website}
 \label{fig:web-use-case}
 \end{figure}
 
 \subsection{Application}
-\textbf{TODO}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{./images/05/06-app-use-case.png}
+%\caption{Use case diagram of website}
+\label{fig:app-use-case}
+\end{figure}
 
 \section{Sequence Diagrams}
 \subsection{Website}
 \subsubsection{Login}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-07-web-login.png}
+\includegraphics[width=\textwidth]{./images/05/07-web-login.png}
 \label{fig:web-login-seq}
 \end{figure}
 
 \subsubsection{Student Registration}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-07-web-student-reg.png}
+\includegraphics[width=\textwidth]{./images/05/07-web-student-reg.png}
 \label{fig:web-student-seq}
 \end{figure}
 
 \subsubsection{Lecturer Registration}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-07-web-lec-reg.png}
+\includegraphics[width=\textwidth]{./images/05/07-web-lec-reg.png}
 \label{fig:web-lec-seq}
 \end{figure}
 
 \subsubsection{Update Module Information}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-07-web-module.png}
+\includegraphics[width=\textwidth]{./images/05/07-web-module.png}
 \label{fig:web-module-seq}
 \end{figure}
 
 \subsubsection{Update Timetable}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-07-web-timetable.png}
+\includegraphics[width=\textwidth]{./images/05/07-web-timetable.png}
 \label{fig:web-timetable-seq}
 \end{figure}
 
 \subsubsection{Logout}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-07-web-logout.png}
+\includegraphics[width=\textwidth]{./images/05/07-web-logout.png}
 \label{fig:web-logout-seq}
 \end{figure}
 
 \subsection{Application}
 
-\subsubsection{Application Start}
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{./images/05-07-app-start.png}
-\label{fig:app-start-seq}
-\end{figure}
-
 \subsubsection{Login}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-07-app-login.png}
+\includegraphics[width=.9\textwidth]{./images/05/07-app-login.png}
 \label{fig:app-login-seq}
+\end{figure}
+
+\subsubsection{Application Start}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{./images/05/07-app-start.png}
+\label{fig:app-start-seq}
 \end{figure}
 
 \subsubsection{Attendance Taking}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-07-app-attendance.png}
+\includegraphics[width=.9\textwidth]{./images/05/07-app-attendance.png}
 \label{fig:app-attendance-seq}
 \end{figure}
 
 \section{Firebase Realtime Database Design}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-08-database-1.png}
+\includegraphics[width=\textwidth]{./images/05/08-database-1.png}
 \caption{Database design part 1}
 \label{fig:database-design-1}
 \end{figure}
@@ -127,7 +138,7 @@ The \textit{lecturer} node groups the lecturer details by \textit{user\_uid}, wh
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{./images/05-08-database-2.png}
+\includegraphics[width=\textwidth]{./images/05/08-database-2.png}
 \caption{Database design part 2}
 \label{fig:database-design-2}
 \end{figure}
