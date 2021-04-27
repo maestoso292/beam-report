@@ -3,11 +3,13 @@
 \usepackage[margin=1.0in]{geometry}
 \usepackage{indentfirst}
 \usepackage[utf8]{inputenc}
+\usepackage{comment}
 \usepackage{titlesec}
 \usepackage{tocvsec2}
 \usepackage[titles]{tocloft}
 % Figures related packages
 \usepackage{tabularx}
+\usepackage{ltablex}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -16,9 +18,10 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[super]{nth}
-% Code listings
+% Code and PDf
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{pdfpages}
 % Bibliography package
 \usepackage[sorting=none,backend=bibtex]{biblatex}
 % Hyperlinks package
@@ -28,6 +31,11 @@
 % Multi-file latex project
 % LOAD LAST
 \usepackage{subfiles}
+
+\newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}%
+\newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}%
+\newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}%
+\keepXColumns
 
 \captionsetup[figure]{labelfont={bf,it},textfont={it}}
 
@@ -103,7 +111,7 @@ Supervisor: Dr. Radu Muschevici\par
 \def\arraystretch{1.5}
 \begin{tabularx}{\textwidth}{ |>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X| }
 \hline
-\textbf{Name} & \textbf{Student ID} \\
+\textbf{Name} & \textbf{Student ID}\\
 \hline
 Khor Yoong Joo & 20208420\\
 \hline
@@ -124,7 +132,6 @@ Syed Ahmad Azhad Bin Ahmad Rosehaizat & 20220036\\
 \setsecnumdepth{subsubsection}
 \settocdepth{section}
 \tableofcontents
-
 \chapter{Abstract}
 \subfile{sections/01-abstract}
 

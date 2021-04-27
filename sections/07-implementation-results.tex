@@ -140,7 +140,7 @@ The changes reflected in the database due to the Python script will be shown bel
 \subsection{Overview of Classes}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.8\linewidth]{../images/07/02-01-class-diagram.png}
+	\includegraphics[width=\linewidth]{../images/07/02-01-class-diagram.png}
 	\caption{Class diagram of custom classes}
 	\label{fig:07-02-01-class-diagram}
 \end{figure}
@@ -149,13 +149,42 @@ The application has many dependencies on external libraries, so the class diagra
 The \textit{ui} package is self-explanatory in that its main purpose is for the application UI. \textit{BeamViewModel} and classes within the \textit{models} package are responsible for fetching data from the Firebase Realtime Database. Lastly, classes in the \textit{services} package along with \textit{MainFragment} and \textit{BeamProfile} are responsible for the attendance taking functionality. 
 
 \subsection{Splash Screen}
+\begin{figure} [H]
+	\centering
+	\begin{subfigure}[b]{0.28\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/07/02-app-splash.jpg}
+		%\caption{}
+		\label{fig:app-splash-1}
+	\end{subfigure}
+	\hspace{0.04\textwidth}
+	\begin{subfigure}[b]{0.28\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/07/02-app-splash-1.jpg}
+		%\caption{TodayFragment}
+		\label{fig:app-splash-2}
+	\end{subfigure}
+	\hspace{0.04\textwidth}
+	\begin{subfigure}[b]{0.28\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/07/02-app-splash-2.jpg}
+		%\caption{ScheduleFragment}
+		\label{fig:app-splash-3}
+	\end{subfigure}
+	\caption{Select frames from Splash Screen during animation}
+	\label{fig:app-splash}
+\end{figure}
+
+The Splash Screen (implemented by \textit{SplashFragment}) also known as the introduction page, is a screen comprised of the logo of the app and animations that were implemented to enhance the aesthetic of the app. It was implemented by using Android animations and XML files to create the individual animations. Each components are labelled with an ID that can be referenced by the animatorSet so that it can play the corresponding animator.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.28\linewidth]{../images/07/02-app-splash.jpg}
-	\caption{Splash Screen}
-	\label{fig:app-splash-screen}
+	\includegraphics[width=.3\linewidth]{../images/07/02-anim-dir.png}
+	\caption{Animator directory containing XML files used for animations}
+	\label{fig:app-settings-screen}
 \end{figure}
-The Splash Screen (implemented by \textit{SplashFragment}) also known as the introduction page, is a screen comprised of the logo of the app and animations that were implemented to enhance the aesthetic of the app. It was implemented by using Android Animation libraries. On arrival at the screen, if there is no valid authentication state, the user is redirected to the Login Screen once the animation ends. Else, the animation will play indefinitely until data from the database has been fetched.
+
+On arrival at the screen, if there is no valid authentication state, the user is redirected to the Login Screen once the animation ends. Else, the animation will play indefinitely until data from the database has been fetched.
 
 \subsection{Login Screen}
 \begin{figure} [H]
@@ -217,9 +246,9 @@ The home screen (implemented as \textit{MainFragment}) is the ``start destinatio
 	\label{fig:app-login-screen}
 \end{figure}
 
-\lstinputlisting[language=XML, caption={Layout file of TodayFragment}]{../code/today_fragment.xml}
-
 \textit{TodayFragment} utilises a \textit{RecyclerView} to display the sessions of the day in a list. The data is fetched using an instance of \textit{BeamViewModel} and the list of sessions is passed to the \textit{TodayRecyclerAdapter} to populate the \textit{RecyclerView}. \textit{TodayRecyclerAdapter} inflates a layout for each row of the list and creates as many rows as needed.
+
+\lstinputlisting[language=XML, caption={Layout file of TodayFragment}]{../code/today_fragment.xml}
 
 \lstinputlisting[language=Java,linerange={67-79}, caption={TodayFragment.java -- Fetching data and passing to the adapter}]{../code/TodayFragment.java}
 
