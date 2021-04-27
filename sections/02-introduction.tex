@@ -11,6 +11,13 @@ This project aims to create an application called Beam that can automatically re
 
 Furthermore, the application will notify students to turn on Bluetooth once attendance is open to sign in. When the device received a token from the lecturer or from other present students, the application will record timestamps to ensure attendance record matches the actual timetable.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=.75\textwidth]{./images/02/02-solution-design.png}
+\caption{Trans=Transmitting device, Rec=Receiving device, BecTrans=Becomes Trans}
+\label{fig:solution-design}
+\end{figure}
+
 \section{Qualifications and Limitations}
 One of the limitations of this application is that it could not detect proxy devices. Students who will not attend class can just hand their devices over to their friends who will attend to sign their attendance. Unless the lecturer counts the number of physical students in the class and tally with the number of students in the attendance record, which is a time-consuming process, students can take attendance with the application on behalf of their friends. If there is a separate device, such as an infrared sensor, that can detect the number of physical students in class automatically, then proxies can be eliminated, albeit at a high monetary cost. Furthermore, students who have already taken attendance can bring their devices to their friends outside the classroom to record attendance for them. Some students may turn off Bluetooth after taking attendance to save on battery consumption. Without Bluetooth, the device cannot act as a beacon for other students’ who have not taken attendance.
 
