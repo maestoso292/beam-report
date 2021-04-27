@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{titlesec}
 \usepackage{tocvsec2}
+\usepackage[titles]{tocloft}
 % Figures related packages
 \usepackage{tabularx}
 \usepackage{graphicx}
@@ -77,6 +78,8 @@
 \titlespacing{\subsection}{0pt}{2.5ex plus 1ex minus .2ex}{1.25ex plus .2ex}
 \titlespacing{\subsubsection}{0pt}{2.5ex plus 1ex minus .2ex}{1.25ex plus .2ex}
 
+\setlength{\cftbeforechapskip}{5pt}
+
 \title{G52GRP Final Report\\Proximity Based Attendance Management via Bluetooth Low Energy}
 \author{Group 10a}
 
@@ -145,7 +148,9 @@ Syed Ahmad Azhad Bin Ahmad Rosehaizat & 20220036\\
 \subfile{sections/08-conclusion.tex}
 
 \chapter{Reflective Comments}
+\subfile{sections/09-reflective.tex}
 
 \chapter{Appendix}
+\subfile{sections/10-appendix.tex}
 \printbibliography[title=References, heading=bibnumbered]
 \end{document}
